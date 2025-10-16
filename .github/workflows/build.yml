@@ -45,17 +45,8 @@ jobs:
           r="${r//'%'/'%25'}"                               
           r="${r//$'\n'/'%0A'}"                             
           r="${r//$'\r'/'%0D'}"                             
-          echo "RELEASE_BODY=$r" >> $GITHUB_OUTPUT                  
-
-      - name: Deploy to Branches Cfp
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          repository-name: diyros/bpb
-          branch: cfp
-          folder: ./dist
-          token: ${{ secrets.GITHUB_TOKEN }}
-          single-commit: true    
-
+          echo "RELEASE_BODY=$r" >> $GITHUB_OUTPUT       
+          
       - name: Upload Release Assets
         uses: svenstaro/upload-release-action@v2
         with:
